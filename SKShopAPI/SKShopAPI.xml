@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SKShopAPI</name>
+    </assembly>
+    <members>
+        <member name="M:SKShopAPI.Controllers.CategoryController.GetCategories">
+            <summary>
+            Get all Categories
+            </summary> 
+            <returns>Returns ActionResult of Categories</returns>
+            <response code="200">**Returns all Categories**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.GetCategory(System.Guid)">
+            <summary>
+            Get a Category by id
+            </summary>
+            <param name="id">**The id of the Category**</param>
+            <returns>Returns ActionResult of CategoryDto</returns>
+            <response code="200">**Returns the requested Category**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.GetProductsForCategory(System.Guid,SKShopAPI.Parameters.ProductResourceParams)">
+            <summary>
+            Get Products for Category
+            </summary>
+            <param name="catId">**The id of the Category**</param>
+            <param name="resourceParams">**Request parameters**</param>
+            <returns>Returns a ActionResult of collection Products</returns>
+            <response code="200">**Returns all Products for a particular Category**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.GetProductForCategory(System.Guid,System.Guid)">
+            <summary>
+            Get a Product for Category
+            </summary>
+            <param name="id">**The id of the Category**</param>
+            <param name="prodId">**The id of the Product**</param>
+            <returns>Returns ActionResult of Product</returns>
+            <response code="200">**Returns a particular Product for a particular Category**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.CreateCategory(SKShopAPI.Models.CategoryForCreationDto)">
+            <summary>
+            Create a Category
+            </summary>
+            <param name="categoryForCreationDto">**Category for creation Model**</param>
+            <returns>Returns ActionResult of Category</returns>
+            <response code="201">**Returns the created Category**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.CreateProductForCategory(System.Guid,SKShopAPI.Models.ProductForCreationDto)">
+            <summary>
+            Create a Product for a Category
+            </summary>
+            <param name="id">**Category id**</param>
+            <param name="productForCreationDto">**Product for creation Model**</param>
+            <returns>Returns ActionResult of type Product Dto</returns>
+            <response code="201">**Returns the created Product**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.UpdateCategory(System.Guid,SKShopAPI.Models.CategoryForUpdateDto)">
+            <summary>
+            Update a Category
+            </summary>
+            <param name="id">**The id of the Category**</param>
+            <param name="categoryForUpdateDto">**Category for update Model**</param>
+            <returns>Returns ActionResult</returns>
+            <response code="204">**Returns NoContent**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.DeleteCategory(System.Guid)">
+            <summary>
+            Delete a Category
+            </summary>
+            <param name="id">**The id of the Category to be deleted**</param>
+            <returns>Returns ActionResult</returns>
+            <response code="204">**Returns NoContent**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.CategoryController.GetProductsOptions">
+            <summary>
+            Categories Options
+            </summary>
+            <returns>Returns IActionResult</returns>
+            <response code="200">**Returns all Http methods supported**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.OrderController.GetOrders">
+            <summary>
+            Get all orders
+            </summary>
+            <returns>Returns action result of orders</returns>
+            <response code="200">**Returns all orders**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.OrderController.GetOrder(System.Guid)">
+            <summary>
+            Get an order by id
+            </summary>
+            <param name="id">**The id of the order**</param>
+            <returns>Returns action result of order</returns>
+            <response code="200">**Returns an order**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.OrderController.DeleteOrder(System.Guid)">
+            <summary>
+            Delete an order by id
+            </summary>
+            <param name="orderId">**The id of the order to delete**</param> 
+            <returns>Return Action result</returns>
+            <response code="204">**Returns No content**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductCollectionController.GetProductCollection(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Get collection of products by Ids
+            </summary>
+            <param name="ids">**Id of each product in the collection**</param>
+            <returns>Returns an ActionResult of IEnumerable of type ProductDto</returns>
+            <response code="200">**Returns a collection of Products by ids**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductCollectionController.CreateProducts(System.Collections.Generic.IEnumerable{SKShopAPI.Models.ProductForCreationDto})">
+            <summary>
+            Create a collection of product
+            </summary>
+            <param name="productCollection">**An Array of products to be created**</param>
+            <returns>Returns ActionResult of IEnumerable of type Product</returns>
+            <response code="201">**Returns a collection of Product created**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.GetProducts(SKShopAPI.Parameters.ProductResourceParams)">
+            <summary>
+            Get all products
+            </summary>
+            <param name="productResourceParams">Query parameters for **searching, sorting, filtering and Ordering products**</param>
+            <returns>Returns an ActionResult of PagedList of type ProductDto</returns>
+            <response code="200">**Returns a collection of Products**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.GetProduct(System.Guid)">
+            <summary>
+            Get a product by Id
+            </summary>
+            <param name="id">**The Id of the product to get**</param>
+            <returns>Returns an ActionResult of type ProductDto</returns>
+            <response code="200">**Returns the requested Product**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.CreateProduct(SKShopAPI.Models.ProductForCreationDto)">
+            <summary>
+            Create a new product
+            </summary>
+            <param name="productForCreationDto">**Model for creating new product**</param> 
+            <returns>Returns a Task of ActionResult of type Product</returns>
+            <response code="201">**Returns the created Product Dto**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.UpdateProduct(System.Guid,SKShopAPI.Models.ProductForUpdateDto)">
+            <summary>
+            Update an existing Product (Full update)
+            </summary>
+            <param name="id">**The Id of the Product to update**</param>
+            <param name="productForUpdateDto">**Model for full update**</param>
+            <returns>**Returns NoContent**</returns> 
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.PartialUpdateProduct(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SKShopAPI.Models.ProductForUpdateDto})">
+            <summary>
+            Partially Update a Product (Partial update)
+            </summary>
+            <param name="id">**The Id of the Product to update**</param>
+            <param name="patchDoc">**The patch document**</param>
+            <returns>**Returns NoContent**</returns>
+            <remarks>
+            Sample request (Partially update the **Name** of a **Product**)  
+            Patch api/products/id  
+            [  
+            {  
+            "op" : "replace",  
+            "path" : /name",  
+            "value" : "new name"  
+            {  
+            [  
+            </remarks>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.Delete(System.Guid)">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id">**The id of the product to delete**</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">**Returns NoContent**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ProductController.GetProductsOptions">
+            <summary>
+            Get products options
+            </summary>
+            <returns>Returns IActionResult</returns>
+            <response code="200">**Returns all Http methods supported**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.GetShopUsers">
+            <summary>
+            Get all shop users
+            </summary>
+            <returns>Returns a collection of shop users</returns>
+            <response code="200">**Returns a collection of users**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.GetShopUser(System.String)">
+            <summary>
+            Get shop user
+            </summary>
+            <param name="id">**The id of the user**</param>
+            <returns>Returns shop user by id</returns>
+            <response code="200">**Returns a user**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.RegisterUser(SKShopAPI.Models.ShopUserForCreationDto)">
+            <summary>
+            Register a user
+            </summary>
+            <param name="model">**The model for creating user**</param>
+            <returns>Returns an action result</returns> 
+            <response code="201">**Returns the user created**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.GenerateToken(SKShopAPI.Models.ShopUserForAuthDto)">
+            <summary>
+            Generate a token for user
+            </summary>
+            <param name="userForAuthDto">**Model to generate the token for**</param>
+            <returns>Returns the token generated</returns>
+            <response code="201">**Returns a Json Web Token**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.GetOrderForUser(System.Guid,System.Guid)">
+            <summary>
+            Get an order for a User
+            </summary>
+            <param name="id">**The id of the Oder**</param>
+            <param name="orderId">**The id of the User**</param>
+            <returns>Returns ActionResult of OrderDto</returns>
+            <response code="200">**Returns a particular Oder for a particular User**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.CreateOrderForUser(System.Guid,SKShopAPI.Models.OrderDto)">
+            <summary>
+            Create an order for a user
+            </summary>
+            <param name="id">**The id of the user to create the order for**</param>
+            <param name="orderDto">**Model for creating an order**</param>
+            <returns>Return Action result</returns>
+            <response code="201">**Returns the created Oder for a particular User**</response>
+        </member>
+        <member name="M:SKShopAPI.Controllers.ShopUserController.DeleteUser(System.String)">
+            <summary>
+            Delete a user by id
+            </summary> 
+            <returns>Returns action result</returns>
+            <response code="204">**The user is successfully deleted**</response>
+        </member>
+        <member name="T:SKShopAPI.Models.ShopUserForAuthDto">
+            <summary>
+            **ShopUser model for authentication**
+            </summary>
+        </member>
+    </members>
+</doc>
