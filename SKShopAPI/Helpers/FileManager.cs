@@ -16,10 +16,8 @@ namespace SKShopAPI.Helpers
         }
 
 
-        public async static Task Savefile(IFormFile formFile, string randomName)
-        {
-            IWebHostEnvironment env = null;
-            var savePath = Path.Combine(env.WebRootPath, "img", randomName);
+        public async static Task Savefile(IFormFile formFile, string randomName, string savePath)
+        {          
 
             using var streamTarget = new FileStream(savePath, FileMode.Create, FileAccess.Write);
             await formFile.CopyToAsync(streamTarget);

@@ -34,8 +34,6 @@ namespace SKShopAPI.Models
 
         public string ImgUrl { get; set; }
 
-        public IFormFile ImgFile { get; set; }
-
         public bool IsInstock { get; set; }
 
         public bool IsItemOfTheWeek { get; set; }

@@ -96,16 +96,7 @@ namespace SKShopAPI.Controllers
             if (productForCreationDto.CategoryId == Guid.Empty)
             {
                 return UnprocessableEntity(new { Error = "Category id can not be null or empty" });
-            }
-
-            if (productForCreationDto.ImgFile != null && productForCreationDto.ImgUrl == null)
-            {
-                var randomName = FileManager.RandomName();
-                await FileManager.Savefile(productForCreationDto.ImgFile, randomName);
-                productForCreationDto.ImgUrl = $"https://localhost:5001/{randomName}";
-            }
-
-            productForCreationDto.ImgFile = null;
+            } 
 
             var newProduct = _mapper.Map<Product>(productForCreationDto);
 

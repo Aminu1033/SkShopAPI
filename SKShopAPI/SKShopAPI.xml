@@ -78,6 +78,13 @@
             <returns>Returns IActionResult</returns>
             <response code="200">**Returns all Http methods supported**</response>
         </member>
+        <member name="M:SKShopAPI.Controllers.FileUploadController.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload a file
+            </summary> 
+            <param name="file">**File to save to the server**</param> 
+            <returns>Returns the url of the file uploaded</returns> 
+        </member>
         <member name="M:SKShopAPI.Controllers.OrderController.GetOrders">
             <summary>
             Get all orders
