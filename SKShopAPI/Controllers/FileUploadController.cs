@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SKShopAPI.Helpers;
@@ -27,7 +29,7 @@ namespace SKShopAPI.Controllers
         /// <returns>Returns the url of the file uploaded</returns> 
         [HttpPost("file", Name = "uploadFile")]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
             if (file == null)
@@ -39,11 +41,40 @@ namespace SKShopAPI.Controllers
 
             var savePath = Path.Combine(Env.WebRootPath, "img", randomName);
 
-            await FileManager.Savefile(file, randomName, savePath);
+            await FileManager.Savefile(file, savePath);
 
             var imgUrl = $"https://localhost:5001/img/{randomName}";
 
-            return Ok(new { imgUrl = imgUrl});
+            return Created(imgUrl, new { imgUrl, imgName = randomName});
+        }
+
+
+        /// <summary>
+        /// Delete a file
+        /// </summary>
+        /// <param name="fileName">**The file name to delete**</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">**Returns NoContent**</response> 
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "AdminOnly")]
+        [HttpDelete("delete")]
+        public IActionResult DeleteFile(string fileName)
+        {
+            if (fileName == null)
+            {
+                return BadRequest(new {Error = "File name can not be empty or null"});
+            }
+
+            var filePath = Path.Combine(Env.WebRootPath, "img", fileName);
+
+            var isDeleted = FileManager.DeleteFile(filePath);
+            if (isDeleted)
+            {
+                return NoContent();
+            }
+
+            return NotFound();
         }
     }
 }

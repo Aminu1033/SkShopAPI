@@ -17,12 +17,12 @@ namespace SKShopAPI.Repositories
 {
     public class ShopUserRepository : IShopUserRepository
     {
-        private readonly UserManager<ShopUser> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
         private readonly ShopDbContext _dbContext;
-        private ShopUser _shopUser;
+        private User _shopUser;
 
-        public ShopUserRepository(UserManager<ShopUser> userManager,
+        public ShopUserRepository(UserManager<User> userManager,
             IConfiguration configuration, ShopDbContext dbContext)
         {
             _userManager = userManager;
@@ -30,7 +30,7 @@ namespace SKShopAPI.Repositories
             _dbContext = dbContext; 
         }
 
-        public async Task<bool> ValidateUser(ShopUserForAuthDto shopUserForAuth)
+        public async Task<bool> ValidateUser(UserForAuthDto shopUserForAuth)
         {
             _shopUser = await _userManager.FindByEmailAsync(shopUserForAuth.Email);
 
@@ -91,12 +91,12 @@ namespace SKShopAPI.Repositories
 
         public async Task<Order> GetOrderForUser(Guid userId, Guid orderId)
         {
-            return await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == orderId && o.ShopUserId == userId.ToString());
+            return await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == orderId && o.UserId == userId.ToString());
         }
 
         public async Task<IEnumerable<Order>> GetOrdersForUser(Guid userId)
         {
-            return await _dbContext.Orders.Where(o => o.ShopUserId == userId.ToString()).ToListAsync();
+            return await _dbContext.Orders.Where(o => o.UserId == userId.ToString()).ToListAsync();
         }
     }
 }

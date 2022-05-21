@@ -12,11 +12,11 @@ namespace SKShopAPI.Profiles
     {
         public ShopUserProfile()
         {
-            CreateMap<ShopUserForCreationDto, ShopUser>()
+            CreateMap<UserForCreationDto, User>()
                 .ForMember(destinationMember => destinationMember.UserName,
                     opt => opt.MapFrom(sourceMember => sourceMember.Email));
 
-            CreateMap<ShopUser, ShopUserDto>()
+            CreateMap<User, UserDto>()
                 .ForMember(dest => dest.FullName,
                   opt => opt.MapFrom(srcMember => $"{srcMember.FirstName} {srcMember.LastName}"))
                 .ForMember(dest => dest.UserName,

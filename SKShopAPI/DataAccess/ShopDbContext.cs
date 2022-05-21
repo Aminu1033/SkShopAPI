@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace SKShopAPI.DataAccess
 {
-    public class ShopDbContext : IdentityDbContext<ShopUser>
+    public class ShopDbContext : IdentityDbContext<User>
     {
         public ShopDbContext(DbContextOptions<ShopDbContext> options) : base(options) { }         
         public DbSet<Category> Categories { get; set; }

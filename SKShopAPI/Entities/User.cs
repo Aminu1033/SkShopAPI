@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SKShopAPI.Entities
 {
-    public class ShopUser : IdentityUser
+    public class User : IdentityUser
     { 
         public override string Id { get; set; }
         [Required]
@@ -24,6 +24,8 @@ namespace SKShopAPI.Entities
         [PersonalData]
         [Column(TypeName = "varchar(250)")]
         public string Address { get; set; }
+        [Column(TypeName = "varchar(250)")]
+        public string ImgUrl { get; set; }
         [PersonalData]
         [Column(TypeName = "varchar(10)")]
         public string Zipcode { get; set; }

@@ -22,14 +22,14 @@ namespace SKShopAPI.Controllers
     [Consumes("application/json", "application/xml")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "AdminOnly")]
 
-    public class ShopUserController : Controller
+    public class UserController : Controller
     {
-        private readonly UserManager<ShopUser> _userManager;
-        private readonly ILogger<ShopUserController> _logger;
+        private readonly UserManager<User> _userManager;
+        private readonly ILogger<UserController> _logger;
         private readonly IMapper _mapper; 
         private readonly IShopUserRepository _shopUserRepository; 
 
-        public ShopUserController(UserManager<ShopUser> userManager, ILogger<ShopUserController> logger,
+        public UserController(UserManager<User> userManager, ILogger<UserController> logger,
             IMapper mapper,IShopUserRepository shopUserRepository)
         {
             _userManager = userManager;
@@ -47,14 +47,14 @@ namespace SKShopAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<ShopUserDto>>> GetShopUsers()
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetShopUsers()
         {
             var users = await _userManager.Users.ToListAsync();
             if (users == null)
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<IEnumerable<ShopUserDto>>(users));
+            return Ok(_mapper.Map<IEnumerable<UserDto>>(users));
         }
 
         /// <summary>
@@ -67,14 +67,14 @@ namespace SKShopAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<ShopUserDto>>> GetShopUser(string id)
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetShopUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<ShopUserDto>(user));
+            return Ok(_mapper.Map<UserDto>(user));
         }
 
         /// <summary>
@@ -88,11 +88,11 @@ namespace SKShopAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         [AllowAnonymous]
-        public async Task<ActionResult<ShopUserDto>> RegisterUser([FromBody] ShopUserForCreationDto model)
+        public async Task<ActionResult<UserDto>> RegisterUser([FromBody] UserForCreationDto model)
         {
             if (model != null)
             {
-                var user = _mapper.Map<ShopUser>(model);
+                var user = _mapper.Map<User>(model);
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                   
@@ -117,7 +117,7 @@ namespace SKShopAPI.Controllers
 
                 var createdUser = await _userManager.FindByEmailAsync(user.Email);
 
-                var userToReturn = _mapper.Map<ShopUserDto>(createdUser);
+                var userToReturn = _mapper.Map<UserDto>(createdUser);
 
                 return CreatedAtRoute(nameof(GetShopUser), new {id = createdUser.Id }, userToReturn);
 
@@ -136,7 +136,7 @@ namespace SKShopAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [AllowAnonymous]
-        public async Task<ActionResult<object>> GenerateToken([FromBody] ShopUserForAuthDto userForAuthDto)
+        public async Task<ActionResult<object>> GenerateToken([FromBody] UserForAuthDto userForAuthDto)
         {
             if (!await _shopUserRepository.ValidateUser(userForAuthDto))
             {

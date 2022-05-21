@@ -9,7 +9,7 @@ namespace SKShopAPI.Models
     /// <summary>
     /// **ShopUser model for authentication**
     /// </summary>
-    public class ShopUserForAuthDto
+    public class UserForAuthDto
     {
         [Required(ErrorMessage = "Email is required")]
         [DataType(DataType.EmailAddress)]

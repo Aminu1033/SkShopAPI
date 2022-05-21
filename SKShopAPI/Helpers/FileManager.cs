@@ -16,11 +16,24 @@ namespace SKShopAPI.Helpers
         }
 
 
-        public async static Task Savefile(IFormFile formFile, string randomName, string savePath)
+        public async static Task Savefile(IFormFile formFile, string savePath)
         {          
 
             using var streamTarget = new FileStream(savePath, FileMode.Create, FileAccess.Write);
             await formFile.CopyToAsync(streamTarget);
+        }
+
+        public static bool DeleteFile(string filePath)
+        {
+            var fileExist = File.Exists(filePath);
+
+            if (fileExist)
+            {
+                File.Delete(filePath);
+                return true;
+            }
+
+            return false;
         }
     }
 }

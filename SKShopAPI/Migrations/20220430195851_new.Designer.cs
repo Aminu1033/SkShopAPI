@@ -275,12 +275,12 @@ namespace SKShopAPI.Migrations
                     b.Property<int>("OrderNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShopUserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ShopUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -486,7 +486,7 @@ namespace SKShopAPI.Migrations
                 {
                     b.HasOne("SKShopAPI.Entities.ShopUser", null)
                         .WithMany("Orders")
-                        .HasForeignKey("ShopUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("SKShopAPI.Entities.Product", b =>

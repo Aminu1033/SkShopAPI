@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SKShopAPI.Models
 {
-    public class ShopUserForCreationDto
+    public class UserForCreationDto
     {
         [Required]
         [PersonalData]

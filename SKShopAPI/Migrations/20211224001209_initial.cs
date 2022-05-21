@@ -315,7 +315,7 @@ namespace SKShopAPI.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ShopUserId",
                 table: "Orders",
-                column: "ShopUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",

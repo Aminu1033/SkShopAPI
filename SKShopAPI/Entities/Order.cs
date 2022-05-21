@@ -12,7 +12,7 @@ namespace SKShopAPI.Entities
         public Guid Id { get; set; } 
         [Required] 
         public int OrderNumber { get; set; }  
-        public string ShopUserId { get; set; } 
+        public string UserId { get; set; } 
         public List<CartItem> CartItems { get; set; } = new();
         [MaxLength(50)]
         public string OrderDate { get; set; } = DateTimeOffset.UtcNow.ToLocalTime().ToString("r");

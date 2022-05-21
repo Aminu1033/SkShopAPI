@@ -85,6 +85,14 @@
             <param name="file">**File to save to the server**</param> 
             <returns>Returns the url of the file uploaded</returns> 
         </member>
+        <member name="M:SKShopAPI.Controllers.FileUploadController.DeleteFile(System.String)">
+            <summary>
+            Delete a file
+            </summary>
+            <param name="fileName">**The file name to delete**</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">**Returns NoContent**</response> 
+        </member>
         <member name="M:SKShopAPI.Controllers.OrderController.GetOrders">
             <summary>
             Get all orders
@@ -190,14 +198,14 @@
             <returns>Returns IActionResult</returns>
             <response code="200">**Returns all Http methods supported**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.GetShopUsers">
+        <member name="M:SKShopAPI.Controllers.UserController.GetShopUsers">
             <summary>
             Get all shop users
             </summary>
             <returns>Returns a collection of shop users</returns>
             <response code="200">**Returns a collection of users**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.GetShopUser(System.String)">
+        <member name="M:SKShopAPI.Controllers.UserController.GetShopUser(System.String)">
             <summary>
             Get shop user
             </summary>
@@ -205,7 +213,7 @@
             <returns>Returns shop user by id</returns>
             <response code="200">**Returns a user**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.RegisterUser(SKShopAPI.Models.ShopUserForCreationDto)">
+        <member name="M:SKShopAPI.Controllers.UserController.RegisterUser(SKShopAPI.Models.UserForCreationDto)">
             <summary>
             Register a user
             </summary>
@@ -213,7 +221,7 @@
             <returns>Returns an action result</returns> 
             <response code="201">**Returns the user created**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.GenerateToken(SKShopAPI.Models.ShopUserForAuthDto)">
+        <member name="M:SKShopAPI.Controllers.UserController.GenerateToken(SKShopAPI.Models.UserForAuthDto)">
             <summary>
             Generate a token for user
             </summary>
@@ -221,7 +229,7 @@
             <returns>Returns the token generated</returns>
             <response code="201">**Returns a Json Web Token**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.GetOrderForUser(System.Guid,System.Guid)">
+        <member name="M:SKShopAPI.Controllers.UserController.GetOrderForUser(System.Guid,System.Guid)">
             <summary>
             Get an order for a User
             </summary>
@@ -230,7 +238,7 @@
             <returns>Returns ActionResult of OrderDto</returns>
             <response code="200">**Returns a particular Oder for a particular User**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.CreateOrderForUser(System.Guid,SKShopAPI.Models.OrderDto)">
+        <member name="M:SKShopAPI.Controllers.UserController.CreateOrderForUser(System.Guid,SKShopAPI.Models.OrderDto)">
             <summary>
             Create an order for a user
             </summary>
@@ -239,14 +247,14 @@
             <returns>Return Action result</returns>
             <response code="201">**Returns the created Oder for a particular User**</response>
         </member>
-        <member name="M:SKShopAPI.Controllers.ShopUserController.DeleteUser(System.String)">
+        <member name="M:SKShopAPI.Controllers.UserController.DeleteUser(System.String)">
             <summary>
             Delete a user by id
             </summary> 
             <returns>Returns action result</returns>
             <response code="204">**The user is successfully deleted**</response>
         </member>
-        <member name="T:SKShopAPI.Models.ShopUserForAuthDto">
+        <member name="T:SKShopAPI.Models.UserForAuthDto">
             <summary>
             **ShopUser model for authentication**
             </summary>

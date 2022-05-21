@@ -10,8 +10,8 @@ using SKShopAPI.DataAccess;
 namespace SKShopAPI.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20211224001209_initial")]
-    partial class initial
+    [Migration("20220521220641_user_entity_updated")]
+    partial class user_entity_updated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace SKShopAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "53f1b432-b13c-40c9-85a7-8bfeab1fdc6c",
-                            ConcurrencyStamp = "1ff8822f-96c6-4975-ac20-77ca12aea9d1",
+                            Id = "20a24ade-05f1-4716-8cbd-b4874fdb6c94",
+                            ConcurrencyStamp = "11a6efd1-f142-4608-b193-57b4bc8edf35",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "f8bb4d64-3ba5-48af-95a5-73b6bac2c67a",
-                            ConcurrencyStamp = "467815f4-29c2-4840-8b8a-2340d048005a",
+                            Id = "128e9cbf-3ea6-4428-9c54-f19074eaf701",
+                            ConcurrencyStamp = "8816c6a6-80da-4114-8427-43112d1deab7",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -341,7 +341,7 @@ namespace SKShopAPI.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SKShopAPI.Entities.ShopUser", b =>
+            modelBuilder.Entity("SKShopAPI.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -366,6 +366,9 @@ namespace SKShopAPI.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("varchar(150)");
+
+                    b.Property<string>("ImgUrl")
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -435,7 +438,7 @@ namespace SKShopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SKShopAPI.Entities.ShopUser", null)
+                    b.HasOne("SKShopAPI.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -444,7 +447,7 @@ namespace SKShopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SKShopAPI.Entities.ShopUser", null)
+                    b.HasOne("SKShopAPI.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -459,7 +462,7 @@ namespace SKShopAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SKShopAPI.Entities.ShopUser", null)
+                    b.HasOne("SKShopAPI.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -468,7 +471,7 @@ namespace SKShopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SKShopAPI.Entities.ShopUser", null)
+                    b.HasOne("SKShopAPI.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -484,7 +487,7 @@ namespace SKShopAPI.Migrations
 
             modelBuilder.Entity("SKShopAPI.Entities.Order", b =>
                 {
-                    b.HasOne("SKShopAPI.Entities.ShopUser", null)
+                    b.HasOne("SKShopAPI.Entities.User", null)
                         .WithMany("Orders")
                         .HasForeignKey("UserId");
                 });
@@ -510,7 +513,7 @@ namespace SKShopAPI.Migrations
                     b.Navigation("CartItems");
                 });
 
-            modelBuilder.Entity("SKShopAPI.Entities.ShopUser", b =>
+            modelBuilder.Entity("SKShopAPI.Entities.User", b =>
                 {
                     b.Navigation("Orders");
                 });

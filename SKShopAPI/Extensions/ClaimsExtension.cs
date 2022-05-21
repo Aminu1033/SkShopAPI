@@ -14,7 +14,7 @@ namespace SKShopAPI.Extensions
         public static async Task ConfigureClaims(IServiceProvider sp)
         {
 
-            var userManager = sp.GetRequiredService<UserManager<ShopUser>>();
+            var userManager = sp.GetRequiredService<UserManager<User>>();
             var user = await userManager.FindByEmailAsync("aminuumar26@gmail.com");
 
             if (user != null)
