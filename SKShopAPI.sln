@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKShopAPI", "SKShopAPI\SKShopAPI.csproj", "{741EE9DE-A60A-410D-B508-2C2CDF2B436C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKShopAPI", "SKShopAPI\SKShopAPI.csproj", "{9C8090B9-CCB7-447B-826D-77F65F2AC23C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{741EE9DE-A60A-410D-B508-2C2CDF2B436C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{741EE9DE-A60A-410D-B508-2C2CDF2B436C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{741EE9DE-A60A-410D-B508-2C2CDF2B436C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{741EE9DE-A60A-410D-B508-2C2CDF2B436C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8090B9-CCB7-447B-826D-77F65F2AC23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8090B9-CCB7-447B-826D-77F65F2AC23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8090B9-CCB7-447B-826D-77F65F2AC23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8090B9-CCB7-447B-826D-77F65F2AC23C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,6 +26,8 @@ namespace SKShopAPI.Entities
         public string Address { get; set; }
         [Column(TypeName = "varchar(250)")]
         public string ImgUrl { get; set; }
+        [Column(TypeName = "varchar(250)")]
+        public string ImgName { get; set; }
         [PersonalData]
         [Column(TypeName = "varchar(10)")]
         public string Zipcode { get; set; }

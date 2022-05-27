@@ -213,7 +213,7 @@ namespace SKShopAPI.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy ="AdminOnly")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy ="AdminOnly")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var productToDelete = await _productRepository.GetProductAsync(id);

@@ -12,7 +12,7 @@ namespace SKShopAPI.Helpers
     { 
         public static string RandomName()
         {
-            return $"img_skdev_{DateTimeOffset.Now:dd_MM_yyy_HH_mm_ss}.jpg";
+            return $"img_skdev_{DateTimeOffset.Now:dd_MM_yyy_HH_mm_ss}_{Guid.NewGuid()}.jpg";
         }
 
 
@@ -26,7 +26,7 @@ namespace SKShopAPI.Helpers
         public static bool DeleteFile(string filePath)
         {
             var fileExist = File.Exists(filePath);
-
+             
             if (fileExist)
             {
                 File.Delete(filePath);

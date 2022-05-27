@@ -33,13 +33,16 @@ namespace SKShopAPI.Entities
 
         [Range(0.0, 0.9, ErrorMessage = "Discount is required and can only be between 0.0 and 0.9")]
         [Column(TypeName = "decimal(1,1)")]
-        public decimal Discount { get; set; } 
+        public double Discount { get; set; } 
 
         public int AmountAvailable { get; set; }         
 
         [Column(TypeName = "varchar(250)")]
         public string ImgUrl { get; set; }
-         
+
+        [Column(TypeName = "varchar(250)")]
+        public string ImgName { get; set; }
+
         public bool IsInstock { get; set; }
          
         public bool IsItemOfTheWeek { get; set; }
