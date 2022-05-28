@@ -30,9 +30,13 @@ namespace SKShopAPI.Models
         [Range(0, 1)] 
         public decimal Discount { get; set; } 
 
-        public int AmountAvailable { get; set; }        
+        public int AmountAvailable { get; set; }
 
+        [MaxLength(250)]
         public string ImgUrl { get; set; }
+
+        [MaxLength(250)]
+        public string ImgName { get; set; }
 
         public bool IsInstock { get; set; }
 

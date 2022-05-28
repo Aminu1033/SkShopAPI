@@ -18,8 +18,9 @@ namespace SKShopAPI.Models
         public string LongDescription { get; set; } 
         public decimal Price { get; set; }
         public int AmountAvailable { get; set; }  
-        public decimal Discount { get; set; }
+        public decimal Discount { get; set; } 
         public string ImgUrl { get; set; } 
+        public string ImgName { get; set; }
         public bool IsInstock { get; set; } 
         public bool IsItemOfTheWeek { get; set; }
         public bool IsHot { get; set; }

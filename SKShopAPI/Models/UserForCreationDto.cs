@@ -37,7 +37,11 @@ namespace SKShopAPI.Models
 
         [PersonalData] 
         public string Zipcode { get; set; }
-        
+        [MaxLength(250)]
+        public string ImgUrl { get; set; }
+        [MaxLength(250)]
+        public string ImgName { get; set; }
+
         //public ICollection<string> Roles { get; set; }
 
         public List<Order> Orders { get; set; } = new();

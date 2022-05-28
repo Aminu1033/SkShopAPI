@@ -33,11 +33,12 @@ namespace SKShopAPI.Models
         public decimal Discount { get; set; }
          
         public int AmountAvailable { get; set; }
-         
+
+        [MaxLength(250)]
         public string ImgUrl { get; set; }
 
-        public IFormFile ImgFile { get; set; }
-
+        [MaxLength(250)]
+        public string ImgName { get; set; }
         public bool IsInstock { get; set; }
 
         public bool IsItemOfTheWeek { get; set; }
